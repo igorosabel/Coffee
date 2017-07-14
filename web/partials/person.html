@@ -1,0 +1,27 @@
+<md-toolbar class="md-hue-2 toolbar-fixed" ng-style="{'background-color':vm.color, 'color':vm.headerColor}">
+  <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" aria-label="Volver" href="/">
+      <md-icon md-svg-src="img/back.svg" ng-style="{'fill':vm.headerColor}"></md-icon>
+    </md-button>
+    <h2>
+      <span>{{vm.name}}</span>
+    </h2>
+  </div>
+</md-toolbar>
+
+<md-content class="full-content md-padding">
+  <h2>Kafe zerrenda</h2>
+  <md-card>
+    <md-card-content>
+      <md-list>
+        <md-list-item ng-repeat="coffee in vm.coffees">
+          {{coffee.y}}-{{coffee.m | formatNum}}-{{coffee.d | formatNum}}
+          <span ng-if="coffee.special">(Ostirala)</span>
+          <span flex></span>
+          <md-checkbox ng-disabled="true" aria-label="Kafea ordaindu" ng-model="coffee.pay"></md-checkbox>
+        </md-list-item>
+        <md-list-item ng-if="vm.coffees.length==0">Oraindik ez da inoiz joan kafera</md-list-item>
+      </md-list>
+    </md-card-content>
+  </md-card>
+</md-content>

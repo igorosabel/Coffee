@@ -1,0 +1,26 @@
+<div ng-view></div>
+
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/angular-animate.min.js"></script>
+<script src="js/lib/angular-aria.min.js"></script>
+<script src="js/lib/angular-messages.min.js"></script>
+<script src="js/lib/angular-route.min.js"></script>
+<script src="js/lib/angular-sanitize.min.js"></script>
+<script src="js/lib/angular-material.min.js"></script>
+<script src="js/lib/tinycolor.js"></script>
+<script src="js/lib/mdColorPicker.min.js"></script>
+<script src="js/lib/common.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers/main-controller.js"></script>
+<script src="js/controllers/calendar-controller.js"></script>
+<script src="js/controllers/colors-controller.js"></script>
+<script src="js/controllers/add-person-controller.js"></script>
+<script src="js/controllers/person-controller.js"></script>
+<script src="js/controllers/day-controller.js"></script>
+<script src="js/controllers/people-controller.js"></script>
+<script src="js/controllers/edit-person-controller.js"></script>
+<script src="js/filters/filters.js"></script>
+<script src="js/services/api-service.js"></script>
+<script src="js/services/data-share-service.js"></script>
+<script src="js/directives/calendar-directive.js"></script>
+<script src="js/directives/colors-directive.js"></script>

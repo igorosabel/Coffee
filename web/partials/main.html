@@ -1,0 +1,55 @@
+<colors data="vm.colors"></colors>
+<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="leftmenu">
+  <md-toolbar class="md-tall md-hue-2">
+    <span flex></span>
+    <div layout="column" class="md-toolbar-tools-bottom inset">
+      <h3>Kafeak</h3>
+    </div>
+  </md-toolbar>
+  <md-list>
+    <md-list-item href="/#!/people">
+      <md-icon md-svg-src="/img/people.svg"></md-icon>
+      <p>Kafezaleak</p>
+    </md-list-item>
+  </md-list>
+</md-sidenav>
+
+<md-toolbar class="md-hue-2 toolbar-fixed">
+  <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" aria-label="Menua" ng-click="vm.openMenu()">
+      <md-icon md-svg-src="img/menu.svg"></md-icon>
+    </md-button>
+    <h2>
+      <span>Kafeak</span>
+    </h2>
+    <span flex></span>
+    <md-button class="md-icon-button" aria-label="Berria" ng-click="vm.addToday()">
+      <md-icon md-svg-src="img/add.svg"></md-icon>
+    </md-button>
+  </div>
+</md-toolbar>
+
+<md-content class="full-content">
+  <calendar data="vm.calendarData"></calendar>
+
+  <md-card>
+    <md-card-title>
+      <md-card-title-text>Kafezaleak</md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      <md-list>
+        <md-list-item>
+          <div class="col col-50">&nbsp;</div>
+          <div class="col col-25 center">Ehunekoa</div>
+          <div class="col col-25 center">Ostiralak</div>
+        </md-list-item>
+        <md-list-item ng-repeat="person in vm.peopleList" href="/#!/person/{{person.id}}">
+          <div class="col col-50 person_{{person.id}}">{{person.name | urldecode}}</div>
+          <div class="col col-25 center">{{person | percentageTotal}}</div>
+          <div class="col col-25 center">{{person | percentageFridays}}</div>
+        </md-list-item>
+      </md-list>
+    </md-card-content>
+  </md-card>
+
+</md-content>

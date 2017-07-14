@@ -1,0 +1,75 @@
+{
+  "urls": [
+    {
+      "id": "cerrado",
+      "url": "/cerrado",
+      "module": "home",
+      "action": "closed",
+      "comment": "Página temporal, sitio cerrado",
+      "layout": "blank"
+    },
+    {
+      "id": "home",
+      "url": "/",
+      "module": "home",
+      "action": "index",
+      "comment": "Pantalla de inicio"
+    },
+    {
+      "id": "get_month_coffees",
+      "url": "/api/get-month-coffees",
+      "module": "api",
+      "action": "getMonthCoffees",
+      "comment": "Función para obtener la lista de cafés de un mes dado"
+    },
+    {
+      "id": "save_person",
+      "url": "/api/save-person",
+      "module": "api",
+      "action": "savePerson",
+      "comment": "Función para guardar una persona"
+    },
+    {
+      "id": "get_person",
+      "url": "/api/get-person",
+      "module": "api",
+      "action": "getPerson",
+      "comment": "Función para obtener los datos de una persona"
+    },
+    {
+      "id": "get_day",
+      "url": "/api/get-day",
+      "module": "api",
+      "action": "getDay",
+      "comment": "Función para obtener los datos de un día concreto"
+    },
+    {
+      "id": "save_coffee",
+      "url": "/api/save-coffee",
+      "module": "api",
+      "action": "saveCoffee",
+      "comment": "Función para guardar un café"
+    },
+    {
+      "id": "delete_coffee",
+      "url": "/api/delete-coffee",
+      "module": "api",
+      "action": "deleteCoffee",
+      "comment": "Función para borrar un café"
+    },
+    {
+      "id": "get_people",
+      "url": "/api/get-people",
+      "module": "api",
+      "action": "getPeople",
+      "comment": "Función para obtener la lista de personas"
+    },
+    {
+      "id": "delete_person",
+      "url": "/api/delete-person",
+      "module": "api",
+      "action": "deletePerson",
+      "comment": "Función para borrar una persona"
+    }
+  ]
+}
