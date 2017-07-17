@@ -40,11 +40,23 @@
       <md-list>
         <md-list-item>
           <div class="col col-50">&nbsp;</div>
-          <div class="col col-25 center">Ehunekoa</div>
-          <div class="col col-25 center">Ostiralak</div>
+          <div class="col col-25 center">
+            <a href="#" ng-click="vm.changeOrder('percentage',$event)" class="sort-field">
+              Ehunekoa
+              <md-icon ng-if="vm.sortField=='percentage'" md-svg-src="img/{{vm.sortOrder}}.svg"></md-icon>
+            </a>
+          </div>
+          <div class="col col-25 center">
+            <a href="#" ng-click="vm.changeOrder('special',$event)" class="sort-field">
+              Ostiralak
+              <md-icon ng-if="vm.sortField=='special'" md-svg-src="img/{{vm.sortOrder}}.svg"></md-icon>
+            </a>
+          </div>
         </md-list-item>
         <md-list-item ng-repeat="person in vm.peopleList" href="/#!/person/{{person.id}}">
-          <div class="col col-50 person_{{person.id}}">{{person.name | urldecode}}</div>
+          <div class="col col-50">
+            <div class="person_{{person.id}}">{{person.name | urldecode}}</div>
+          </div>
           <div class="col col-25 center">{{person | percentageTotal}}</div>
           <div class="col col-25 center">{{person | percentageFridays}}</div>
         </md-list-item>

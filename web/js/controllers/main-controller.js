@@ -20,9 +20,12 @@
     vm.calendarData = {
       selectDay: selectDay
     };
+    vm.sortField = 'percentage';
+    vm.sortOrder = 'down';
     
-    vm.openMenu = openMenu;
-    vm.addToday = addToday;
+    vm.openMenu    = openMenu;
+    vm.addToday    = addToday;
+    vm.changeOrder = changeOrder;
 
     APIService.GetMonthCoffees({month: vm.m, year: vm.y}, monthCoffeesSuccess, monthCoffeesError);
 
@@ -31,6 +34,7 @@
       for (let i in vm.people){
         vm.peopleList.push(vm.people[i]);
       }
+      listOrder();
       vm.colors.list = vm.peopleList;
       
       const marked = {};
@@ -46,6 +50,33 @@
 
     function monthCoffeesError(response){
       console.error(response);
+    }
+    
+    function listOrder(){
+      if (vm.sortField=='percentage'){
+        if (vm.sortOrder=='down'){
+          vm.peopleList.sort(function(a, b) {
+            return (b.num_pay / b.num_coffee) - (a.num_pay / a.num_coffee);
+          });
+        }
+        if (vm.sortOrder=='up'){
+          vm.peopleList.sort(function(a, b) {
+            return (a.num_pay / a.num_coffee) - (b.num_pay / b.num_coffee);
+          });
+        }
+      }
+      if (vm.sortField=='special'){
+        if (vm.sortOrder=='down'){
+          vm.peopleList.sort(function(a, b) {
+            return (b.num_special_pay / b.num_special) - (a.num_special_pay / a.num_special);
+          });
+        }
+        if (vm.sortOrder=='up'){
+          vm.peopleList.sort(function(a, b) {
+            return (a.num_special_pay / a.num_special) - (b.num_special_pay / b.num_special);
+          });
+        }
+      }
     }
     
     function openMenu(){
@@ -73,6 +104,13 @@
       else{
         $location.path('/day');
       }
+    }
+    
+    function changeOrder(field,ev){
+      ev.preventDefault();
+      vm.sortField = field;
+      vm.sortOrder = (vm.sortOrder=='up') ? 'down' : 'up';
+      listOrder();
     }
   }
 })();
