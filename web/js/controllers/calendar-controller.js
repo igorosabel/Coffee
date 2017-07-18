@@ -5,8 +5,8 @@
     .module('CoffeeApp')
     .controller('CalendarController', CalendarController);
 
-  CalendarController.$inject = ['$scope'];
-  function CalendarController($scope){
+  CalendarController.$inject = ['$scope','$mdMedia'];
+  function CalendarController($scope, $mdMedia){
     console.log('CalendarController');
     const vmd = this;
     let data = $scope.data;
@@ -16,6 +16,7 @@
     };
 
     $scope.$watch('data',function(){
+      vmd.calendarOptions.$mdMedia = $mdMedia;
       vmd.calendarOptions.selectDay = $scope.data.selectDay;
       vmd.cal = new Calendar(vmd.calendarOptions);
       $scope.data.cal = vmd.cal;
@@ -24,6 +25,9 @@
 
   class Calendar{
     constructor(options){
+      // Auxiliar $mdMedia
+      this.$mdMedia = options.$mdMedia;
+      
       // Donde dibujar el calendario
       this.where = null;
       if (!options.hasOwnProperty('where')){
@@ -70,7 +74,9 @@
     }
     configure(){
       this.months = ['Urtarrila','Otsaila','Martxoa','Apirila','Maiatza','Ekaina','Uztaila','Abuztua','Iraila','Urria','Azaroa','Abendua'];
+      this.monthsShort = ['Urt','Ots','Mar','Api','Mai','Eka','Uzt','Abu','Ira','Urr','Aza','Abe'];
       this.days = ['Astelehena','Asteartea','Asteazkena','Osteguna','Ostirala','Larunbata','Igandea'];
+      this.daysShort = ['Asl','Ast','Asz','Ost','Osi','Lar','Iga'];
     }
     getDate(){
       return {d: this.day, m: this.month, y: this.year};
@@ -80,15 +86,17 @@
       this.render();
     }
     header(){
+      const months = this.$mdMedia('gt-xs') ? this.months : this.monthsShort;
+      const days   = this.$mdMedia('gt-xs') ? this.days   : this.daysShort;
       let header = `
         <div class="calendar-header">
           <a href="#" class="calendar-previous">&lt;</a>
-          ${this.months[this.month]} ${this.year}
+          ${months[this.month]} ${this.year}
           <a href="#" class="calendar-next">&gt;</a>
         </div>
         <div class="calendar-row">`;
-      for (let i in this.days){
-        header += `<div class="calendar-header-day">${this.days[i]}</div>`;
+      for (let i in days){
+        header += `<div class="calendar-header-day">${days[i]}</div>`;
       }
       header += `</div>`;
       return  header;

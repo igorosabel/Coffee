@@ -42,13 +42,13 @@
           <div class="col col-50">&nbsp;</div>
           <div class="col col-25 center">
             <a href="#" ng-click="vm.changeOrder('percentage',$event)" class="sort-field">
-              Ehunekoa
+              {{vm.label.ehunekoa}}
               <md-icon ng-if="vm.sortField=='percentage'" md-svg-src="img/{{vm.sortOrder}}.svg"></md-icon>
             </a>
           </div>
           <div class="col col-25 center">
             <a href="#" ng-click="vm.changeOrder('special',$event)" class="sort-field">
-              Ostiralak
+              {{vm.label.ostirala}}
               <md-icon ng-if="vm.sortField=='special'" md-svg-src="img/{{vm.sortOrder}}.svg"></md-icon>
             </a>
           </div>

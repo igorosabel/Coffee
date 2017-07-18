@@ -5,8 +5,8 @@
     .module('CoffeeApp')
     .controller('MainController', MainController);
 
-  MainController.$inject = ['$scope', '$location', '$mdSidenav', 'APIService', 'DataShareService'];
-  function MainController($scope, $location, $mdSidenav, APIService, DataShareService){
+  MainController.$inject = ['$scope', '$location', '$mdSidenav', '$mdMedia', 'APIService', 'DataShareService'];
+  function MainController($scope, $location, $mdSidenav, $mdMedia, APIService, DataShareService){
     console.log('MainController');
     const vm = this;
 
@@ -22,21 +22,19 @@
     };
     vm.sortField = 'percentage';
     vm.sortOrder = 'down';
+    vm.label = {
+      ehunekoa: $mdMedia('gt-xs') ? 'Ehunekoa' : '%',
+      ostirala: $mdMedia('gt-xs') ? 'Ostiralak': 'Ost'
+    };
     
     vm.openMenu    = openMenu;
     vm.addToday    = addToday;
     vm.changeOrder = changeOrder;
 
     APIService.GetMonthCoffees({month: vm.m, year: vm.y}, monthCoffeesSuccess, monthCoffeesError);
+    APIService.GetPeople(peopleSuccess, peopleError);
 
     function monthCoffeesSuccess(response){
-      vm.people  = response.people;
-      for (let i in vm.people){
-        vm.peopleList.push(vm.people[i]);
-      }
-      listOrder();
-      vm.colors.list = vm.peopleList;
-      
       const marked = {};
       marked[vm.y] = {};
       marked[vm.y][vm.m] = {};
@@ -45,11 +43,24 @@
       }
       vm.calendarData.cal.updateMarked(marked);
       vm.coffees = response.list;
-      vm.colors.load();
     }
 
     function monthCoffeesError(response){
       console.error(response);
+    }
+    
+    function peopleSuccess(response){
+      vm.people  = response.people;
+      for (let i in vm.people){
+        vm.peopleList.push(vm.people[i]);
+      }
+      listOrder();
+      vm.colors.list = vm.peopleList;
+      vm.colors.load();
+    }
+    
+    function peopleError(response){
+      console.log(response);
     }
     
     function listOrder(){

@@ -7,7 +7,6 @@
     $month  = Base::getParam('month', $req['url_params'], false);
     $year   = Base::getParam('year',  $req['url_params'], false);
     $list   = array();
-    $people = array();
 
     if ($month===false || $year===false){
       $status = 'error';
@@ -15,7 +14,6 @@
 
     if ($status=='ok'){
       $list = stPublic::getMonthCoffees($month, $year);
-      $people = stPublic::getPeople();
     }
 
     $t->setLayout(false);
@@ -24,8 +22,7 @@
     $t->add('status', $status);
     $t->add('m', $month);
     $t->add('y', $year);
-    $t->addPartial('people', 'api/people',          array('people'=>$people, 'extra'=>'nourlencode'));
-    $t->addPartial('list',   'api/monthCoffeeList', array('list'=>$list,     'extra'=>'nourlencode'));
+    $t->addPartial('list', 'api/monthCoffeeList', array('list'=>$list, 'extra'=>'nourlencode'));
     $t->process();
   }
 
