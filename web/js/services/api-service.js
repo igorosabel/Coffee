@@ -21,7 +21,7 @@
     return service;
 
     function GetMonthCoffees(date,callback,callback_error){
-      $http.post('./api/get-month-coffees', date)
+      $http.post('./api/coffee/get-month', date)
         .then(function (response){
           callback && callback(response.data);
         },
@@ -31,7 +31,7 @@
     }
 
     function SavePerson(person,callback,callback_error){
-      $http.post('./api/save-person', person)
+      $http.post('./api/person/save', person)
         .then(function (response){
           callback && callback(response.data);
         },
@@ -41,7 +41,7 @@
     }
     
     function GetPerson(id,callback,callback_error){
-      $http.post('./api/get-person', {id})
+      $http.post('./api/person/get', {id})
         .then(function (response){
           callback && callback(response.data);
         },
@@ -61,7 +61,7 @@
     }
     
     function SaveCoffee(saveObj,callback,callback_error){
-      $http.post('./api/save-coffee', saveObj)
+      $http.post('./api/coffee/save', saveObj)
         .then(function (response){
           callback && callback(response.data);
         },
@@ -71,7 +71,7 @@
     }
     
     function DeleteCoffee(id,callback,callback_error){
-      $http.post('./api/delete-coffee', {id})
+      $http.post('./api/coffee/delete', {id})
         .then(function (response){
           callback && callback(response.data);
         },
@@ -81,7 +81,7 @@
     }
 
     function GetPeople(callback,callback_error){
-      $http.post('./api/get-people', {})
+      $http.post('./api/person/get-people', {})
         .then(function (response){
             callback && callback(response.data);
           },
@@ -91,7 +91,7 @@
     }
 
     function DeletePerson(id,callback,callback_error){
-      $http.post('./api/delete-person', {id})
+      $http.post('./api/person/delete', {id})
         .then(function (response){
             callback && callback(response.data);
           },

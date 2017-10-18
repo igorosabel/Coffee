@@ -246,4 +246,11 @@
 
     $t->add('status', $status);
     $t->process();
+  }  /*
+   * Función para actualizar un café
+   */
+  function executeUpdateCoffee($req, $t){
+    $t->setLayout(false);
+    $t->setJson(true);
+    $t->process();
   }

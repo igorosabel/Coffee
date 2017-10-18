@@ -18,7 +18,8 @@
     vm.peopleList = [];
     vm.coffees    = [];
     vm.calendarData = {
-      selectDay: selectDay
+      selectDay: selectDay,
+      changeMonth: selectMonth
     };
     vm.sortField = 'percentage';
     vm.sortOrder = 'down';
@@ -115,6 +116,10 @@
       else{
         $location.path('/day');
       }
+    }
+    
+    function selectMonth(date){
+      console.log(date);
     }
     
     function changeOrder(field,ev){

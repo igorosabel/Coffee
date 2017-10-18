@@ -190,7 +190,9 @@
         this.year--;
       }
       this.render();
+      console.log(this.changeMonth);
       if (this.changeMonth!=null){
+        console.log('aaa');
         this.changeMonth({
           month: (this.month+1),
           year: this.year
