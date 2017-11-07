@@ -1,11 +1,18 @@
 <?php
-header('P3P: CP="CAO PSA OUR"');
 session_start();
 $start_time = microtime(true);
 $where = 'index';
 
-header('Access-Control-Allow-Origin: *');
+/*header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
+header('P3P: CP="CAO PSA OUR"');*/
+
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Credentials: true");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+header('P3P: CP="CAO PSA OUR"');
+header("Content-Type: application/json; charset=utf-8");
 
 include('../config/config.php');
 include($c->getDir('config').'model.php');

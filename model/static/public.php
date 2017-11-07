@@ -89,7 +89,7 @@ class stPublic{
     $sql = sprintf("UPDATE `coffee` SET `id_person` = NULL WHERE `id_person` = %s", $person->get('id'));
     $db->query($sql);
 
-    $sql = sprintf("DELETE FROM `went` WHERE `id_perosn` = %s", $person->get('id'));
+    $sql = sprintf("DELETE FROM `went` WHERE `id_person` = %s", $person->get('id'));
     $db->query($sql);
 
     $person->delete();
