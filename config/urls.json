@@ -15,7 +15,8 @@
           "id": "home",
           "url": "/",
           "action": "index",
-          "comment": "Pantalla de inicio"
+          "comment": "Pantalla de inicio",
+          "layout": "blank"
         }
       ]
     },
@@ -63,6 +64,12 @@
               "id": "get_month_coffees",
               "url": "/get-month",
               "action": "getMonthCoffees",
+              "comment": "Función para obtener la lista de cafés de un mes dado"
+            },
+            {
+              "id": "get_month",
+              "url": "/get-month-list",
+              "action": "getMonthList",
               "comment": "Función para obtener la lista de cafés de un mes dado"
             },
             {

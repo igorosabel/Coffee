@@ -22,7 +22,7 @@
     $t->add('status', $status);
     $t->add('m', $month);
     $t->add('y', $year);
-    $t->addPartial('list', 'api/monthCoffeeList', array('list'=>$list, 'extra'=>'nourlencode'));
+    $t->addPartial('list', 'api/monthCoffee', array('list'=>$list, 'extra'=>'nourlencode'));
     $t->process();
   }
 
@@ -252,5 +252,38 @@
   function executeUpdateCoffee($req, $t){
     $t->setLayout(false);
     $t->setJson(true);
+    $t->process();
+  }
+
+  /*
+   * Función para obtener la lista de cafés de un mes dado
+   */
+  function executeGetMonthList($req, $t){
+    $status = 'ok';
+    $month  = Base::getParam('month', $req['url_params'], false);
+    $year   = Base::getParam('year',  $req['url_params'], false);
+    $list   = array();
+
+    if ($month===false || $year===false){
+      $status = 'error';
+    }
+
+    if ($status=='ok'){
+      $full_list = stPublic::getMonthCoffees($month, $year);
+      foreach ($full_list as $coffee){
+        if (!array_key_exists($coffee->get('d'), $list)){
+          $list[$coffee->get('d')] = array();
+        }
+        array_push($list[$coffee->get('d')], $coffee);
+      }
+    }
+
+    $t->setLayout(false);
+    $t->setJson(true);
+
+    $t->add('status', $status);
+    $t->add('m', $month);
+    $t->add('y', $year);
+    $t->addPartial('list', 'api/monthCoffeeList', array('list'=>$list, 'extra'=>'nourlencode'));
     $t->process();
   }
