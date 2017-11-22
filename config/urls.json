@@ -83,6 +83,12 @@
               "url": "/delete",
               "action": "deleteCoffee",
               "comment": "Función para borrar un café"
+            },
+            {
+              "id": "get_coffee",
+              "url": "/get",
+              "action": "getCoffee",
+              "comment": "Función para obtener los detalles de un café"
             }
           ]
         },

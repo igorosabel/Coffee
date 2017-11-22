@@ -287,3 +287,45 @@
     $t->addPartial('list', 'api/monthCoffeeList', array('list'=>$list, 'extra'=>'nourlencode'));
     $t->process();
   }
+  
+  /*
+   * Función para obtener los detalles de un café
+   */
+  function executeGetCoffee($req, $t){
+    $status    = 'ok';
+    $id_coffee = Base::getParam('id',   $req['url_params'], false);
+    $day       = '';
+    $month     = '';
+    $year      = '';
+    $special   = 0;
+    $id_pay    = 0;
+    $people    = array();
+
+    if ($id_coffee===false){
+      $status = 'error';
+    }
+
+    if ($status=='ok'){
+      $data = stPublic::getCoffee($id_coffee);
+      
+      $day     = $data['coffee']->get('d');
+      $month   = $data['coffee']->get('m');
+      $year    = $data['coffee']->get('y');
+      $special = ($data['coffee']->get('special') ? 1 : 0);
+      $id_pay  = $data['coffee']->get('id_person');
+      $people  = $data['people'];
+    }
+
+    $t->setLayout(false);
+    $t->setJson(true);
+
+    $t->add('status',    $status);
+    $t->add('d',         $day);
+    $t->add('m',         $month);
+    $t->add('y',         $year);
+    $t->add('id_coffee', $id_coffee);
+    $t->add('special',   $special);
+    $t->add('id_pay',    $id_pay);
+    $t->addPartial('people', 'api/people', array('people'=>$people, 'extra'=>'nourlencode'));
+    $t->process();
+  }

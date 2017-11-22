@@ -83,6 +83,27 @@ class stPublic{
 
     return $list;
   }
+  
+  public static function getCoffee($id){
+    $db = new ODB();
+    $sql = sprintf("SELECT * FROM `coffee` WHERE `id` = %s", $id);
+    $db->query($sql);
+    $cof = new Coffee();
+    $res = $db->next();
+    $cof->update($res);
+    $went_ids = $cof->getPeopleIds();
+    $people = self::getPeople();
+    
+    foreach ($people as $person){
+      if (in_array($person->get('id'), $went_ids)){
+        $person->setDidGo(true);
+      }
+    }
+    
+    $list = array('coffee'=>$cof, 'people'=>$people);
+
+    return $list;
+  }
 
   public static function deletePerson($person){
     $db = new ODB();
