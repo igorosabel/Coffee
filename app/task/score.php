@@ -7,6 +7,12 @@ class scoreTask{
   function __construct(){}
 
   public function run($options=[]){
+    if (!array_key_exists('silent', $options)){
+      $silent = false;
+    }
+    else{
+      $silent = $options['silent'];
+    }
     $db = new ODB();
     $sql = "SELECT * FROM `coffee`";
     $db->query($sql);
@@ -34,7 +40,9 @@ class scoreTask{
     foreach ($scores as $id_person => $score){
       $sql = sprintf("UPDATE `person` SET `score` = %s WHERE `id` = %s", $score, $id_person);
       $db->query($sql);
-      echo "Actualizo person ".$id_person." con puntuación ".$score."\n";
+      if (!$silent){
+        echo "Actualizo person ".$id_person." con puntuación ".$score."\n";
+      }
     }
   }
 }

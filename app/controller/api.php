@@ -158,6 +158,8 @@ class api extends OController{
 
       $cof->save();
       $cof->updateWent($id_pay, $list);
+
+      Base::runTask('score', ['silent'=>true]);
     }
 
     $this->getTemplate()->add('status', $status);
@@ -184,6 +186,8 @@ class api extends OController{
           $person = $went->getPerson();
           $person->updateNumbers();
         }
+
+        Base::runTask('score', ['silent'=>true]);
       }
     }
 
