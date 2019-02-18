@@ -43,6 +43,12 @@ class Person extends OBase{
           'comment'  => 'Color para identificar a la persona',
           'nullable' => false
         ],
+        'score' => [
+          'type'     => Base::FLOAT,
+          'comment'  => 'Puntuación de la persona',
+          'nullable' => false,
+          'default'  => 0
+        ],
         'created_at' => [
           'type'    => Base::CREATED,
           'comment' => 'Fecha de creación del registro'
@@ -54,6 +60,10 @@ class Person extends OBase{
     ];
 
     parent::load($table_name, $model);
+  }
+
+  public function __toString(){
+    return $this->get('name');
   }
 
   private $did_go = false;

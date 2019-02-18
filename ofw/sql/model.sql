@@ -31,6 +31,7 @@ CREATE TABLE `person` (
   `num_special` INT(11) NOT NULL DEFAULT '0' COMMENT 'Número de viernes que ha bajado',
   `num_special_pay` INT(11) NOT NULL DEFAULT '0' COMMENT 'Número de viernes que ha pagado',
   `color` VARCHAR(6) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT 'Color para identificar a la persona',
+  `score` FLOAT NOT NULL DEFAULT '0' COMMENT 'Puntuación de la persona',
   `created_at` DATETIME NOT NULL COMMENT 'Fecha de creación del registro',
   `updated_at` DATETIME NULL COMMENT 'Fecha de última modificación del registro',
   PRIMARY KEY (`id`)
