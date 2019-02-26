@@ -13,7 +13,7 @@
   require($c->getDir('ofw_base').'OController.php');
   require($c->getDir('ofw_base').'OService.php');
   require($c->getDir('ofw_base').'ODB.php');
-  require($c->getDir('ofw_base').'ODBp.php');
+  require($c->getDir('ofw_base').'ODBContainer.php');
   require($c->getDir('ofw_base').'OLog.php');
   require($c->getDir('ofw_base').'OUrl.php');
   require($c->getDir('ofw_base').'OTemplate.php');
@@ -104,4 +104,14 @@
       }
     }
     closedir($model);
+  }
+
+  // Si hay conexión a BD, compruebo drivers
+  if ($c->getDB('user')!=='' || $c->getDB('pass')!=='' || $c->getDB('host')!=='' || $c->getDB('name')!==''){
+    $pdo_drivers = PDO::getAvailableDrivers();
+    if (!in_array($c->getDB('driver'), $pdo_drivers)){
+      echo "ERROR: El sistema no dispone del driver ".$c->getDB('driver')." solicitado para realizar la conexión a la base de datos.\n";
+      exit();
+    }
+    $dbcontainer = new ODBContainer();
   }

@@ -1,5 +1,6 @@
 <?php
 session_start();
+$start_time = microtime(true);
 $where = 'task_ofw';
 
 require(dirname(__FILE__).'/ofw/base/start.php');
@@ -30,6 +31,7 @@ if ($model = opendir($c->getDir('app_task'))) {
 function taskOptions($task_list){
   $ret = "";
   $ret .= "  Opciones:\n";
+  asort($task_list);
   foreach ($task_list as $task){
     $task_name = $task."Task";
     $tsk = new $task_name();
