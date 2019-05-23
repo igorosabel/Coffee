@@ -1,6 +1,14 @@
 CHANGELOG
 =========
 
+## `4.7.5` (23/05/2019)
+
+Corrección para la última release. La ruta de un archivo a actualizar estaba mal. Se ha marcado ese archivo para borrar por si al actualizar dejase algún resto que no debería estar.
+
+## `4.7.4` (23/05/2019)
+
+Corrección para los proyectos sin base de datos. Siempre se intentaba cerrar las conexiones abiertas, a pesar de que ni siquiera haya definida una base de datos.
+
 ## `4.7.3` (21/05/2019)
 
 Nueva opción para los archivos ZIP de `OFile`. Al crear un zip a partir de una carpeta, el ZIP contiene primero una carpeta con el nombre de la carpeta origen. Esto ahora se puede cambiar mediante un nuevo parámetro opcional:
