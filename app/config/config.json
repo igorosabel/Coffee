@@ -7,7 +7,7 @@
   	"pass": "l1&A6pz3",
   	"name": "coffee"
   },
-  "base_url": "https://coffee.osumi.es/",
+  "base_url": "https://apicoffee.osumi.es/",
   "extra": {
     "secret": "d8561c62f8c143a9f65d19a656ec94c1c395fa9e"
   }
