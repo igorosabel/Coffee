@@ -1,60 +1,60 @@
 <?php
-class Person extends OBase{
+class Person extends OModel{
   function __construct(){
     $table_name  = 'person';
     $model = [
         'id' => [
-          'type'    => Base::PK,
+          'type'    => OCore::PK,
           'comment' => 'Id único de cada persona'
         ],
         'name' => [
-          'type'     => Base::TEXT,
+          'type'     => OCore::TEXT,
           'size'     => 50,
           'comment'  => 'Nombre de la persona',
           'nullable' => false
         ],
         'num_coffee' => [
-          'type'     => Base::NUM,
+          'type'     => OCore::NUM,
           'comment'  => 'Número de veces que ha bajado al café',
           'nullable' => false,
           'default'  => 0
         ],
         'num_pay' => [
-          'type'     => Base::NUM,
+          'type'     => OCore::NUM,
           'comment'  => 'Número de veces que ha pagado',
           'nullable' => false,
           'default'  => 0
         ],
         'num_special' => [
-          'type'     => Base::NUM,
+          'type'     => OCore::NUM,
           'comment'  => 'Número de viernes que ha bajado',
           'nullable' => false,
           'default'  => 0
         ],
         'num_special_pay' => [
-          'type'     => Base::NUM,
+          'type'     => OCore::NUM,
           'comment'  => 'Número de viernes que ha pagado',
           'nullable' => false,
           'default'  => 0
         ],
         'color' => [
-          'type'     => Base::TEXT,
+          'type'     => OCore::TEXT,
           'size'     => 6,
           'comment'  => 'Color para identificar a la persona',
           'nullable' => false
         ],
         'score' => [
-          'type'     => Base::FLOAT,
+          'type'     => OCore::FLOAT,
           'comment'  => 'Puntuación de la persona',
           'nullable' => false,
           'default'  => 0
         ],
         'created_at' => [
-          'type'    => Base::CREATED,
+          'type'    => OCore::CREATED,
           'comment' => 'Fecha de creación del registro'
         ],
         'updated_at' => [
-          'type'    => Base::UPDATED,
+          'type'    => OCore::UPDATED,
           'comment' => 'Fecha de última modificación del registro'
         ]
     ];

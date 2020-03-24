@@ -11,8 +11,8 @@ class api extends OController{
    */
   public function getMonthCoffees($req){
     $status = 'ok';
-    $month  = Base::getParam('month', $req['url_params'], false);
-    $year   = Base::getParam('year',  $req['url_params'], false);
+    $month  = OTools::getParam('month', $req['params'], false);
+    $year   = OTools::getParam('year',  $req['params'], false);
     $list   = [];
 
     if ($month===false || $year===false){
@@ -34,9 +34,9 @@ class api extends OController{
    */
   public function savePerson($req){
     $status = 'ok';
-    $id     = Base::getParam('id',    $req['url_params'], false);
-    $name   = Base::getParam('name',  $req['url_params'], false);
-    $color  = Base::getParam('color', $req['url_params'], false);
+    $id     = OTools::getParam('id',    $req['params'], false);
+    $name   = OTools::getParam('name',  $req['params'], false);
+    $color  = OTools::getParam('color', $req['params'], false);
 
     if ($id===false || $name===false || $color===false){
       $status = 'error';
@@ -63,7 +63,7 @@ class api extends OController{
    */
   public function getPerson($req){
     $status = 'ok';
-    $id     = Base::getParam('id', $req['url_params'], false);
+    $id     = OTools::getParam('id', $req['params'], false);
     $name   = '';
     $color  = '';
     $list   = [];
@@ -96,9 +96,9 @@ class api extends OController{
    */
   public function getDay($req){
     $status = 'ok';
-    $day    = Base::getParam('day',   $req['url_params'], false);
-    $month  = Base::getParam('month', $req['url_params'], false);
-    $year   = Base::getParam('year',  $req['url_params'], false);
+    $day    = OTools::getParam('day',   $req['params'], false);
+    $month  = OTools::getParam('month', $req['params'], false);
+    $year   = OTools::getParam('year',  $req['params'], false);
 
     $id_coffee = 0;
     $special   = 0;
@@ -133,13 +133,13 @@ class api extends OController{
    */
   public function saveCoffee($req){
     $status  = 'ok';
-    $id      = Base::getParam('id',      $req['url_params'], false);
-    $id_pay  = Base::getParam('id_pay',  $req['url_params'], false);
-    $d       = Base::getParam('d',       $req['url_params'], false);
-    $m       = Base::getParam('m',       $req['url_params'], false);
-    $y       = Base::getParam('y',       $req['url_params'], false);
-    $special = Base::getParam('special', $req['url_params'], false);
-    $list    = Base::getParam('list',    $req['url_params'], false);
+    $id      = OTools::getParam('id',      $req['params'], false);
+    $id_pay  = OTools::getParam('id_pay',  $req['params'], false);
+    $d       = OTools::getParam('d',       $req['params'], false);
+    $m       = OTools::getParam('m',       $req['params'], false);
+    $y       = OTools::getParam('y',       $req['params'], false);
+    $special = OTools::getParam('special', $req['params'], false);
+    $list    = OTools::getParam('list',    $req['params'], false);
 
     if ($id===false || $id_pay===false || $d===false || $m===false || $y===false || $list===false){
       $status = 'error';
@@ -159,7 +159,7 @@ class api extends OController{
       $cof->save();
       $cof->updateWent($id_pay, $list);
 
-      Base::runTask('score', ['silent'=>true]);
+      OTools::runTask('score', ['silent'=>true]);
     }
 
     $this->getTemplate()->add('status', $status);
@@ -170,7 +170,7 @@ class api extends OController{
    */
   public function deleteCoffee($req){
     $status = 'ok';
-    $id     = Base::getParam('id', $req['url_params'], false);
+    $id     = OTools::getParam('id', $req['params'], false);
 
     if ($id===false){
       $status = 'error';
@@ -187,7 +187,7 @@ class api extends OController{
           $person->updateNumbers();
         }
 
-        Base::runTask('score', ['silent'=>true]);
+        OTools::runTask('score', ['silent'=>true]);
       }
     }
 
@@ -206,7 +206,7 @@ class api extends OController{
    */
   public function deletePerson($req){
     $status = 'ok';
-    $id     = Base::getParam('id', $req['url_params'], false);
+    $id     = OTools::getParam('id', $req['params'], false);
 
     if ($id===false){
       $status = 'error';
@@ -233,8 +233,8 @@ class api extends OController{
    */
   public function getMonthList($req){
     $status = 'ok';
-    $month  = Base::getParam('month', $req['url_params'], false);
-    $year   = Base::getParam('year',  $req['url_params'], false);
+    $month  = OTools::getParam('month', $req['params'], false);
+    $year   = OTools::getParam('year',  $req['params'], false);
     $list   = [];
 
     if ($month===false || $year===false){
@@ -262,7 +262,7 @@ class api extends OController{
    */
   public function getCoffee($req){
     $status    = 'ok';
-    $id_coffee = Base::getParam('id', $req['url_params'], false);
+    $id_coffee = OTools::getParam('id', $req['params'], false);
     $day       = '';
     $month     = '';
     $year      = '';

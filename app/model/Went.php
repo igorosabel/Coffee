@@ -1,30 +1,30 @@
 <?php
-class Went extends OBase{
+class Went extends OModel{
   function __construct(){
     $table_name  = 'went';
     $model = [
         'id_person' => [
-          'type'    => Base::PK,
+          'type'    => OCore::PK,
           'comment' => 'Id de la persona que ha bajado al café',
           'incr'    => false
         ],
         'id_coffee' => [
-          'type'    => Base::PK,
+          'type'    => OCore::PK,
           'comment' => 'Id de la vez que se ha bajado al café',
           'incr'    => false
         ],
         'pay' => [
-          'type'    => Base::BOOL,
+          'type'    => OCore::BOOL,
           'comment' => 'Indica si la persona ha pagado 1 o no 0',
           'nullable' => false,
           'default'  => 0
         ],
         'created_at' => [
-          'type'    => Base::CREATED,
+          'type'    => OCore::CREATED,
           'comment' => 'Fecha de creación del registro'
         ],
         'updated_at' => [
-          'type'    => Base::UPDATED,
+          'type'    => OCore::UPDATED,
           'comment' => 'Fecha de última modificación del registro'
         ]
     ];

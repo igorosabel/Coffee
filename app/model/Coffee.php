@@ -1,43 +1,43 @@
 <?php
-class Coffee extends OBase{
+class Coffee extends OModel{
   function __construct(){
     $table_name  = 'coffee';
     $model = [
         'id' => [
-          'type'    => Base::PK,
+          'type'    => OCore::PK,
           'comment' => 'Id único de cada día que se ha bajado al café'
         ],
         'd' => [
-          'type'     => Base::NUM,
+          'type'     => OCore::NUM,
           'comment'  => 'Día que se ha bajado al café',
           'nullable' => false
         ],
         'm' => [
-          'type'     => Base::NUM,
+          'type'     => OCore::NUM,
           'comment'  => 'Mes que se ha bajado al café',
           'nullable' => false
         ],
         'y' => [
-          'type'     => Base::NUM,
+          'type'     => OCore::NUM,
           'comment'  => 'Año que se ha bajado al café',
           'nullable' => false
         ],
         'id_person' => [
-          'type'     => Base::NUM,
+          'type'     => OCore::NUM,
           'comment'  => 'Id de la persona que ha pagado',
           'nullable' => false
         ],
         'special' => [
-          'type'     => Base::BOOL,
+          'type'     => OCore::BOOL,
           'comment'  => 'Indica si es un día especial (viernes de pintxo)',
           'nullable' => false
         ],
         'created_at' => [
-          'type'    => Base::CREATED,
+          'type'    => OCore::CREATED,
           'comment' => 'Fecha de creación del registro'
         ],
         'updated_at' => [
-          'type'    => Base::UPDATED,
+          'type'    => OCore::UPDATED,
           'comment' => 'Fecha de última modificación del registro'
         ]
     ];
