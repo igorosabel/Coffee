@@ -1,8 +1,8 @@
 {
-  "status": "{{status}}",
-  "m": {{m}},
-  "y": {{y}},
-  "list": [
+	"status": "{{status}}",
+	"m": {{m}},
+	"y": {{y}},
+	"list": [
 {{list}}
-  ]
+	]
 }

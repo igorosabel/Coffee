@@ -1,5 +1,5 @@
 {
-  "people": {
+	"people": {
 {{people}}
-  }
+	}
 }
