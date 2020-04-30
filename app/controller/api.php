@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 class api extends OController {
-	private $public_service;
+	private ?publicService $public_service = null;
 
 	function __construct(){
 		$this->$public_service = new publicService();
