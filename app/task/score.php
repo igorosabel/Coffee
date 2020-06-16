@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-class scoreTask{
+class scoreTask extends OTask{
 	/**
 	 * Itzuli ataza hau egiten duenaren deskripzioa
 	 */
