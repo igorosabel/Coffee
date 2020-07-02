@@ -27,70 +27,58 @@
 			"prefix": "/api",
 			"urls": [
 				{
-					"id": "person",
-					"prefix": "/person",
-					"urls": [
-						{
-							"id": "save_person",
-							"url": "/save",
-							"action": "savePerson",
-							"comment": "Función para guardar una persona"
-						},
-						{
-							"id": "get_person",
-							"url": "/get",
-							"action": "getPerson",
-							"comment": "Función para obtener los datos de una persona"
-						},
-						{
-							"id": "delete_person",
-							"url": "/delete",
-							"action": "deletePerson",
-							"comment": "Función para borrar una persona"
-						},
-						{
-							"id": "get_people",
-							"url": "/get-people",
-							"action": "getPeople",
-							"comment": "Función para obtener la lista de personas"
-						}
-					]
+					"id": "save_person",
+					"url": "/person/save",
+					"action": "savePerson",
+					"comment": "Función para guardar una persona"
 				},
 				{
-					"id": "coffee",
-					"prefix": "/coffee",
-					"urls": [
-						{
-							"id": "get_month_coffees",
-							"url": "/get-month",
-							"action": "getMonthCoffees",
-							"comment": "Función para obtener la lista de cafés de un mes dado"
-						},
-						{
-							"id": "get_month",
-							"url": "/get-month-list",
-							"action": "getMonthList",
-							"comment": "Función para obtener la lista de cafés de un mes dado"
-						},
-						{
-							"id": "save_coffee",
-							"url": "/save",
-							"action": "saveCoffee",
-							"comment": "Función para guardar un café"
-						},
-						{
-							"id": "delete_coffee",
-							"url": "/delete",
-							"action": "deleteCoffee",
-							"comment": "Función para borrar un café"
-						},
-						{
-							"id": "get_coffee",
-							"url": "/get",
-							"action": "getCoffee",
-							"comment": "Función para obtener los detalles de un café"
-						}
-					]
+					"id": "get_person",
+					"url": "/person/get",
+					"action": "getPerson",
+					"comment": "Función para obtener los datos de una persona"
+				},
+				{
+					"id": "delete_person",
+					"url": "/person/delete",
+					"action": "deletePerson",
+					"comment": "Función para borrar una persona"
+				},
+				{
+					"id": "get_people",
+					"url": "/person/get-people",
+					"action": "getPeople",
+					"comment": "Función para obtener la lista de personas"
+				},
+				{
+					"id": "get_month_coffees",
+					"url": "/coffee/get-month",
+					"action": "getMonthCoffees",
+					"comment": "Función para obtener la lista de cafés de un mes dado"
+				},
+				{
+					"id": "get_month",
+					"url": "/coffee/get-month-list",
+					"action": "getMonthList",
+					"comment": "Función para obtener la lista de cafés de un mes dado"
+				},
+				{
+					"id": "save_coffee",
+					"url": "/coffee/save",
+					"action": "saveCoffee",
+					"comment": "Función para guardar un café"
+				},
+				{
+					"id": "delete_coffee",
+					"url": "/coffee/delete",
+					"action": "deleteCoffee",
+					"comment": "Función para borrar un café"
+				},
+				{
+					"id": "get_coffee",
+					"url": "/coffee/get",
+					"action": "getCoffee",
+					"comment": "Función para obtener los detalles de un café"
 				},
 				{
 					"id": "get_day",
