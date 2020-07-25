@@ -1,4 +1,8 @@
 <?php declare(strict_types=1);
+/**
+ * @type json
+ * @prefix /api
+*/
 class api extends OModule {
 	private ?publicService $public_service = null;
 
@@ -9,8 +13,8 @@ class api extends OModule {
 	/**
 	 * Función para obtener la lista de cafés de un mes dado
 	 *
+	 * @url /coffee/get-month
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
-	 *
 	 * @return void
 	 */
 	public function getMonthCoffees(ORequest $req): void {
@@ -36,8 +40,8 @@ class api extends OModule {
 	/**
 	 * Función para guardar una persona
 	 *
+	 * @url /person/save
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
-	 *
 	 * @return void
 	 */
 	public function savePerson(ORequest $req): void {
@@ -69,8 +73,8 @@ class api extends OModule {
 	/**
 	 * Función para obtener los datos de una persona
 	 *
+	 * @url /person/get
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
-	 *
 	 * @return void
 	 */
 	public function getPerson(ORequest $req): void {
@@ -106,8 +110,8 @@ class api extends OModule {
 	/**
 	 * Función para obtener los datos de un día concreto
 	 *
+	 * @url /get-day
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
-	 *
 	 * @return void
 	 */
 	public function getDay(ORequest $req): void {
@@ -147,8 +151,8 @@ class api extends OModule {
 	/**
 	 * Función para guardar un café
 	 *
+	 * @url /coffee/save
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
-	 *
 	 * @return void
 	 */
 	public function saveCoffee(ORequest $req): void {
@@ -188,8 +192,8 @@ class api extends OModule {
 	/**
 	 * Función para borrar un café
 	 *
+	 * @url /coffee/delete
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
-	 *
 	 * @return void
 	 */
 	public function deleteCoffee(ORequest $req): void {
@@ -221,8 +225,8 @@ class api extends OModule {
 	/**
 	 * Función para obtener la lista de personas
 	 *
+	 * @url /person/get-people
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
-	 *
 	 * @return void
 	 */
 	public function getPeople(ORequest $req): void {
@@ -232,8 +236,8 @@ class api extends OModule {
 	/**
 	 * Función para borrar una persona
 	 *
+	 * @url /person/delete
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
-	 *
 	 * @return void
 	 */
 	public function deletePerson(ORequest $req): void {
@@ -269,8 +273,8 @@ class api extends OModule {
 	/**
 	 * Función para obtener la lista de cafés de un mes dado
 	 *
+	 * @url /coffee/get-month-list
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
-	 *
 	 * @return void
 	 */
 	public function getMonthList(ORequest $req): void {
@@ -302,8 +306,8 @@ class api extends OModule {
 	/**
 	 * Función para obtener los detalles de un café
 	 *
+	 * @url /coffee/get
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
-	 *
 	 * @return void
 	 */
 	public function getCoffee(ORequest $req): void {
