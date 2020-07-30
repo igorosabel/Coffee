@@ -34,7 +34,7 @@ class api extends OModule {
 		$this->getTemplate()->add('status', $status);
 		$this->getTemplate()->add('m', $month);
 		$this->getTemplate()->add('y', $year);
-		$this->getTemplate()->addPartial('list', 'api/monthCoffee', ['list'=>$list, 'extra'=>'nourlencode']);
+		$this->getTemplate()->addComponent('list', 'api/monthCoffee', ['list'=>$list, 'extra'=>'nourlencode']);
 	}
 
 	/**
@@ -104,7 +104,7 @@ class api extends OModule {
 		$this->getTemplate()->add('id',     $id);
 		$this->getTemplate()->add('name',   $name);
 		$this->getTemplate()->add('color',  $color);
-		$this->getTemplate()->addPartial('list', 'api/personCoffees', ['list'=>$list, 'extra'=>'nourlencode']);
+		$this->getTemplate()->addComponent('list', 'api/personCoffees', ['list'=>$list, 'extra'=>'nourlencode']);
 	}
 
 	/**
@@ -145,7 +145,7 @@ class api extends OModule {
 		$this->getTemplate()->add('id_coffee', $id_coffee);
 		$this->getTemplate()->add('special',   $special);
 		$this->getTemplate()->add('id_pay',    $id_pay);
-		$this->getTemplate()->addPartial('people', 'api/people', ['people'=>$people, 'extra'=>'nourlencode']);
+		$this->getTemplate()->addComponent('people', 'api/people', ['people'=>$people, 'extra'=>'nourlencode']);
 	}
 
 	/**
@@ -230,7 +230,7 @@ class api extends OModule {
 	 * @return void
 	 */
 	public function getPeople(ORequest $req): void {
-		$this->getTemplate()->addPartial('people', 'api/people', ['people'=>$this->$public_service->getPeople(), 'extra'=>'nourlencode']);
+		$this->getTemplate()->addComponent('people', 'api/people', ['people'=>$this->$public_service->getPeople(), 'extra'=>'nourlencode']);
 	}
 
 	/**
@@ -300,7 +300,7 @@ class api extends OModule {
 		$this->getTemplate()->add('status', $status);
 		$this->getTemplate()->add('m', $month);
 		$this->getTemplate()->add('y', $year);
-		$this->getTemplate()->addPartial('list', 'api/monthCoffeeList', ['list'=>$list, 'extra'=>'nourlencode']);
+		$this->getTemplate()->addComponent('list', 'api/monthCoffeeList', ['list'=>$list, 'extra'=>'nourlencode']);
 	}
 
 	/**
@@ -342,6 +342,6 @@ class api extends OModule {
 		$this->getTemplate()->add('id_coffee', $id_coffee);
 		$this->getTemplate()->add('special',   $special);
 		$this->getTemplate()->add('id_pay',    $id_pay);
-		$this->getTemplate()->addPartial('people', 'api/people', ['people'=>$people, 'extra'=>'nourlencode']);
+		$this->getTemplate()->addComponent('people', 'api/people', ['people'=>$people, 'extra'=>'nourlencode']);
 	}
 }
