@@ -1,8 +1,18 @@
 <?php declare(strict_types=1);
-/**
- * @type json
- * @prefix /api
-*/
+
+namespace OsumiFramework\App\Module;
+
+use OsumiFramework\OFW\Core\OModule;
+use OsumiFramework\OFW\Web\ORequest;
+use OsumiFramework\OFW\Routing\ORoute;
+use OsumiFramework\App\Model\Person;
+use OsumiFramework\App\Model\Coffee;
+use OsumiFramework\App\Service\publicService;
+
+#[ORoute(
+	type: 'json',
+	prefix: '/api'
+)]
 class api extends OModule {
 	private ?publicService $public_service = null;
 
@@ -13,10 +23,10 @@ class api extends OModule {
 	/**
 	 * Función para obtener la lista de cafés de un mes dado
 	 *
-	 * @url /coffee/get-month
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
 	 * @return void
 	 */
+	#[ORoute('/coffee/get-month')]
 	public function getMonthCoffees(ORequest $req): void {
 		$status = 'ok';
 		$month  = $req->getParamInt('month');
@@ -40,10 +50,10 @@ class api extends OModule {
 	/**
 	 * Función para guardar una persona
 	 *
-	 * @url /person/save
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
 	 * @return void
 	 */
+	#[ORoute('/person/save')]
 	public function savePerson(ORequest $req): void {
 		$status = 'ok';
 		$id     = $req->getParamInt('id');
@@ -73,10 +83,10 @@ class api extends OModule {
 	/**
 	 * Función para obtener los datos de una persona
 	 *
-	 * @url /person/get
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
 	 * @return void
 	 */
+	#[ORoute('/person/get')]
 	public function getPerson(ORequest $req): void {
 		$status = 'ok';
 		$id     = $req->getParamInt('id');
@@ -110,10 +120,10 @@ class api extends OModule {
 	/**
 	 * Función para obtener los datos de un día concreto
 	 *
-	 * @url /get-day
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
 	 * @return void
 	 */
+	#[ORoute('/get-day')]
 	public function getDay(ORequest $req): void {
 		$status = 'ok';
 		$day    = $req->getParamInt('day');
@@ -151,10 +161,10 @@ class api extends OModule {
 	/**
 	 * Función para guardar un café
 	 *
-	 * @url /coffee/save
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
 	 * @return void
 	 */
+	#[ORoute('/coffee/save')]
 	public function saveCoffee(ORequest $req): void {
 		$status  = 'ok';
 		$id      = $req->getParamInt('id');
@@ -192,10 +202,10 @@ class api extends OModule {
 	/**
 	 * Función para borrar un café
 	 *
-	 * @url /coffee/delete
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
 	 * @return void
 	 */
+	#[ORoute('/coffee/delete')]
 	public function deleteCoffee(ORequest $req): void {
 		$status = 'ok';
 		$id     = $req->getParamInt('id');
@@ -225,10 +235,10 @@ class api extends OModule {
 	/**
 	 * Función para obtener la lista de personas
 	 *
-	 * @url /person/get-people
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
 	 * @return void
 	 */
+	#[ORoute('/person/get-people')]
 	public function getPeople(ORequest $req): void {
 		$this->getTemplate()->addComponent('people', 'api/people', ['people'=>$this->$public_service->getPeople(), 'extra'=>'nourlencode']);
 	}
@@ -236,10 +246,10 @@ class api extends OModule {
 	/**
 	 * Función para borrar una persona
 	 *
-	 * @url /person/delete
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
 	 * @return void
 	 */
+	#[ORoute('/person/delete')]
 	public function deletePerson(ORequest $req): void {
 		$status = 'ok';
 		$id     = $req->getParamInt('id');
@@ -268,15 +278,18 @@ class api extends OModule {
 	 *
 	 * @return void
 	 */
+	#[ORoute(
+
+)]
 	public function updateCoffee(ORequest $req): void {}
 
 	/**
 	 * Función para obtener la lista de cafés de un mes dado
 	 *
-	 * @url /coffee/get-month-list
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
 	 * @return void
 	 */
+	#[ORoute('/coffee/get-month-list')]
 	public function getMonthList(ORequest $req): void {
 		$status = 'ok';
 		$month  = $req->getParamInt('month');
@@ -306,10 +319,10 @@ class api extends OModule {
 	/**
 	 * Función para obtener los detalles de un café
 	 *
-	 * @url /coffee/get
 	 * @param ORequest $req Request object with method, headers, parameters and filters used
 	 * @return void
 	 */
+	#[ORoute('/coffee/get')]
 	public function getCoffee(ORequest $req): void {
 		$status    = 'ok';
 		$id_coffee = $req->getParamInt('id');

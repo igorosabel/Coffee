@@ -1,4 +1,11 @@
 <?php declare(strict_types=1);
+
+namespace OsumiFramework\App\Model;
+
+use OsumiFramework\OFW\DB\OModel;
+use OsumiFramework\App\Model\Person;
+use OsumiFramework\App\Model\Went;
+
 class Coffee extends OModel {
 	/**
 	 * Configures current model object based on data-base table structure
@@ -7,40 +14,40 @@ class Coffee extends OModel {
 		$table_name  = 'coffee';
 		$model = [
 			'id' => [
-				'type'    => OCore::PK,
+				'type'    => OModel::PK,
 				'comment' => 'Id único de cada día que se ha bajado al café'
 			],
 			'd' => [
-				'type'     => OCore::NUM,
+				'type'     => OModel::NUM,
 				'comment'  => 'Día que se ha bajado al café',
 				'nullable' => false
 			],
 			'm' => [
-				'type'     => OCore::NUM,
+				'type'     => OModel::NUM,
 				'comment'  => 'Mes que se ha bajado al café',
 				'nullable' => false
 			],
 			'y' => [
-				'type'     => OCore::NUM,
+				'type'     => OModel::NUM,
 				'comment'  => 'Año que se ha bajado al café',
 				'nullable' => false
 			],
 			'id_person' => [
-				'type'     => OCore::NUM,
+				'type'     => OModel::NUM,
 				'comment'  => 'Id de la persona que ha pagado',
 				'nullable' => false
 			],
 			'special' => [
-				'type'     => OCore::BOOL,
+				'type'     => OModel::BOOL,
 				'comment'  => 'Indica si es un día especial (viernes de pintxo)',
 				'nullable' => false
 			],
 			'created_at' => [
-				'type'    => OCore::CREATED,
+				'type'    => OModel::CREATED,
 				'comment' => 'Fecha de creación del registro'
 			],
 			'updated_at' => [
-				'type'    => OCore::UPDATED,
+				'type'    => OModel::UPDATED,
 				'comment' => 'Fecha de última modificación del registro'
 			]
 		];

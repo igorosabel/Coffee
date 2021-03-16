@@ -1,4 +1,9 @@
 <?php declare(strict_types=1);
+
+namespace OsumiFramework\App\Model;
+
+use OsumiFramework\OFW\DB\OModel;
+
 class Person extends OModel{
 	/**
 	 * Configures current model object based on data-base table structure
@@ -7,57 +12,57 @@ class Person extends OModel{
 		$table_name  = 'person';
 		$model = [
 			'id' => [
-				'type'    => OCore::PK,
+				'type'    => OModel::PK,
 				'comment' => 'Id único de cada persona'
 			],
 			'name' => [
-				'type'     => OCore::TEXT,
+				'type'     => OModel::TEXT,
 				'size'     => 50,
 				'comment'  => 'Nombre de la persona',
 				'nullable' => false
 			],
 			'num_coffee' => [
-				'type'     => OCore::NUM,
+				'type'     => OModel::NUM,
 				'comment'  => 'Número de veces que ha bajado al café',
 				'nullable' => false,
 				'default'  => 0
 			],
 			'num_pay' => [
-				'type'     => OCore::NUM,
+				'type'     => OModel::NUM,
 				'comment'  => 'Número de veces que ha pagado',
 				'nullable' => false,
 				'default'  => 0
 			],
 			'num_special' => [
-				'type'     => OCore::NUM,
+				'type'     => OModel::NUM,
 				'comment'  => 'Número de viernes que ha bajado',
 				'nullable' => false,
 				'default'  => 0
 			],
 			'num_special_pay' => [
-				'type'     => OCore::NUM,
+				'type'     => OModel::NUM,
 				'comment'  => 'Número de viernes que ha pagado',
 				'nullable' => false,
 				'default'  => 0
 			],
 			'color' => [
-				'type'     => OCore::TEXT,
+				'type'     => OModel::TEXT,
 				'size'     => 6,
 				'comment'  => 'Color para identificar a la persona',
 				'nullable' => false
 			],
 			'score' => [
-				'type'     => OCore::FLOAT,
+				'type'     => OModel::FLOAT,
 				'comment'  => 'Puntuación de la persona',
 				'nullable' => false,
 				'default'  => 0
 			],
 			'created_at' => [
-				'type'    => OCore::CREATED,
+				'type'    => OModel::CREATED,
 				'comment' => 'Fecha de creación del registro'
 			],
 			'updated_at' => [
-				'type'    => OCore::UPDATED,
+				'type'    => OModel::UPDATED,
 				'comment' => 'Fecha de última modificación del registro'
 			]
 		];

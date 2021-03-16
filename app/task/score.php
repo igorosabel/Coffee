@@ -1,4 +1,11 @@
 <?php declare(strict_types=1);
+
+namespace OsumiFramework\App\Task;
+
+use OsumiFramework\OFW\Core\OTask;
+use OsumiFramework\OFW\DB\ODB;
+use OsumiFramework\App\Model\Coffee;
+
 class scoreTask extends OTask{
 	/**
 	 * Itzuli ataza hau egiten duenaren deskripzioa

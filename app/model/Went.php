@@ -1,4 +1,10 @@
 <?php declare(strict_types=1);
+
+namespace OsumiFramework\App\Model;
+
+use OsumiFramework\OFW\DB\OModel;
+use OsumiFramework\App\Model\Person;
+
 class Went extends OModel{
 	/**
 	 * Configures current model object based on data-base table structure
@@ -7,27 +13,27 @@ class Went extends OModel{
 		$table_name  = 'went';
 		$model = [
 			'id_person' => [
-				'type'    => OCore::PK,
+				'type'    => OModel::PK,
 				'comment' => 'Id de la persona que ha bajado al café',
 				'incr'    => false
 			],
 			'id_coffee' => [
-				'type'    => OCore::PK,
+				'type'    => OModel::PK,
 				'comment' => 'Id de la vez que se ha bajado al café',
 				'incr'    => false
 			],
 			'pay' => [
-				'type'    => OCore::BOOL,
+				'type'    => OModel::BOOL,
 				'comment' => 'Indica si la persona ha pagado 1 o no 0',
 				'nullable' => false,
 				'default'  => 0
 			],
 			'created_at' => [
-				'type'    => OCore::CREATED,
+				'type'    => OModel::CREATED,
 				'comment' => 'Fecha de creación del registro'
 			],
 			'updated_at' => [
-				'type'    => OCore::UPDATED,
+				'type'    => OModel::UPDATED,
 				'comment' => 'Fecha de última modificación del registro'
 			]
 		];
