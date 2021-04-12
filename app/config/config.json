@@ -1,4 +1,5 @@
 {
+	"name": "Coffee",
 	"admin_email": "inigo.gorosabel@gmail.com",
 	"default_title": "Coffee",
 	"db": {
